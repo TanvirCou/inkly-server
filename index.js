@@ -12,6 +12,8 @@ import { clerkMiddleware, requireAuth } from "@clerk/express";
 import cors from "cors";
 import 'dotenv/config'
 
+const port = process.env.PORT || 5000 
+
 const app = express();
 
 app.use(cors(process.env.CLIENT_URL));
@@ -66,7 +68,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-app.listen(5000, () => {
+app.listen(port, () => {
   connectDB();
   console.log("Server is running!");
 });
