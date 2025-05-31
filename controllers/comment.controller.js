@@ -4,7 +4,7 @@ import Activity from "../models/activity.model.js";
 
 export const getPostComments = async (req, res) => {
   const comments = await Comment.find({ post: req.params.postId })
-    .populate("user", "username img")
+    .populate("user", "username firstName lastName img")
     .sort({ createdAt: -1 });
 
   res.json(comments);
